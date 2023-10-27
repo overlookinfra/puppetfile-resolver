@@ -20,4 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'molinillo', '~> 0.6'
   spec.add_runtime_dependency 'semantic_puppet', '~> 1.0'
+
+  spec.add_development_dependency 'webrick', '~> 1.8'
 end
