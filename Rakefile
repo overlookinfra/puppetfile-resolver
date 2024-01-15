@@ -19,6 +19,14 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/**/*_spec.rb']
 end
 
+namespace :spec do
+  desc 'Run RSpec code examples with coverage collection'
+  task :coverage do
+      ENV['COVERAGE'] = 'yes'
+      Rake::Task['spec'].execute
+  end
+end
+
 task default: :spec
 
 namespace :ssl do
