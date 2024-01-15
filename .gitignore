@@ -12,6 +12,7 @@ Gemfile.lock
 tmp/
 vendor/
 .DS_Store
+coverage/
 
 # Gem building
 puppetfile-resolver*.gem
