@@ -5,7 +5,6 @@ require 'English'
 require 'puppetfile-resolver/util'
 require 'puppetfile-resolver/spec_searchers/common'
 require 'puppetfile-resolver/spec_searchers/git_configuration'
-require 'puppetfile-resolver/util'
 require 'uri'
 
 module PuppetfileResolver

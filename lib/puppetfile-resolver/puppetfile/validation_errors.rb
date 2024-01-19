@@ -3,8 +3,7 @@
 module PuppetfileResolver
   module Puppetfile
     class DocumentValidationErrorBase
-      attr_accessor :message
-      attr_accessor :puppet_module
+      attr_accessor :message, :puppet_module
 
       def initialize(message, puppet_module)
         @message = message
@@ -79,8 +78,7 @@ module PuppetfileResolver
     # Resolution Validation Error classes for validating
     # a valid Puppetfile against a dependency resolution
     class DocumentResolutionErrorBase < DocumentValidationErrorBase
-      attr_accessor :puppet_module
-      attr_accessor :module_specification
+      attr_accessor :puppet_module, :module_specification
 
       def initialize(message, puppet_module, module_specification)
         super(message, puppet_module)

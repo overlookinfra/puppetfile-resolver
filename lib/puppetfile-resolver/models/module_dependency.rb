@@ -3,9 +3,7 @@
 module PuppetfileResolver
   module Models
     class ModuleDependency
-      attr_accessor :name
-      attr_accessor :owner
-      attr_accessor :version_requirement
+      attr_accessor :name, :owner, :version_requirement
 
       def initialize(options = {})
         # Munge the name

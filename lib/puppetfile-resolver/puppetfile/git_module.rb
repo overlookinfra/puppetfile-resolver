@@ -5,10 +5,7 @@ require 'puppetfile-resolver/puppetfile/base_module'
 module PuppetfileResolver
   module Puppetfile
     class GitModule < BaseModule
-      attr_accessor :remote
-      attr_accessor :ref
-      attr_accessor :commit
-      attr_accessor :tag
+      attr_accessor :remote, :ref, :commit, :tag
 
       def initialize(title)
         super

@@ -7,9 +7,7 @@ require 'puppetfile-resolver/spec_searchers/local_configuration'
 module PuppetfileResolver
   module SpecSearchers
     class Configuration
-      attr_reader :local
-      attr_reader :forge
-      attr_reader :git
+      attr_reader :local, :forge, :git
 
       def initialize
         @local = LocalConfiguration.new

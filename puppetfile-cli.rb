@@ -72,9 +72,9 @@ else
 end
 
 # Parse the Puppetfile into an object model
-content = File.open(options[:path], 'rb') { |f| f.read }
+content = File.binread(options[:path])
 require 'puppetfile-resolver/puppetfile/parser/r10k_eval'
-puppetfile = ::PuppetfileResolver::Puppetfile::Parser::R10KEval.parse(content)
+puppetfile = PuppetfileResolver::Puppetfile::Parser::R10KEval.parse(content)
 
 # Make sure the Puppetfile is valid
 unless puppetfile.valid?

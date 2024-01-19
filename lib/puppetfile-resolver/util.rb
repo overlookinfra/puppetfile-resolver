@@ -29,7 +29,7 @@ module PuppetfileResolver
     def self.net_http_get(uri, proxy = nil)
       uri = URI.parse(uri) unless uri.is_a?(URI)
 
-      http_options = { :use_ssl => uri.class == URI::HTTPS }
+      http_options = { :use_ssl => uri.instance_of?(URI::HTTPS) }
       # Because on Windows Ruby doesn't use the Windows certificate store which has up-to date
       # CA certs, we can't depend on someone setting the environment variable correctly. So use our
       # static CA PEM file if SSL_CERT_FILE is not set.

@@ -15,8 +15,7 @@ module PuppetfileResolver
             end
 
             def self.to_document_module(title, _args)
-              mod = ::PuppetfileResolver::Puppetfile::LocalModule.new(title)
-              mod
+              ::PuppetfileResolver::Puppetfile::LocalModule.new(title)
             end
           end
         end

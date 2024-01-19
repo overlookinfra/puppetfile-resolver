@@ -5,16 +5,12 @@ require 'puppetfile-resolver/puppetfile/invalid_module'
 module PuppetfileResolver
   module Puppetfile
     class DocumentLocation
-      attr_accessor :start_line # Base 0
-      attr_accessor :start_char # Base 0
-      attr_accessor :end_line # Base 0
-      attr_accessor :end_char # Base 0
+      attr_accessor :start_line, :start_char, :end_line, :end_char # Base 0 # Base 0 # Base 0 # Base 0
     end
 
     class Document
-      attr_accessor :forge_uri
+      attr_accessor :forge_uri, :content
       attr_reader   :modules
-      attr_accessor :content
 
       def initialize(puppetfile_content)
         @content = puppetfile_content
