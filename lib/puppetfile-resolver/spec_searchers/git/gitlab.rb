@@ -21,11 +21,11 @@ module PuppetfileResolver
 
           # Example URL
           # https://gitlab.com/simp/pupmod-simp-crypto_policy/-/raw/0.1.4/metadata.json
-          metadata_url = 'https://gitlab.com/' + repo_url + '/-/raw/'
+          metadata_url = "https://gitlab.com/#{repo_url}/-/raw/"
           if puppetfile_module.ref
-            metadata_url += puppetfile_module.ref + '/'
+            metadata_url += "#{puppetfile_module.ref}/"
           elsif puppetfile_module.tag
-            metadata_url += puppetfile_module.tag + '/'
+            metadata_url += "#{puppetfile_module.tag}/"
           else
             # Default to master. Should it raise?
             metadata_url += 'master/'

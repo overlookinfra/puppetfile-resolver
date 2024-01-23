@@ -43,7 +43,7 @@ module PuppetfileResolver
       private
 
       def to_cache_name(name)
-        ::Digest::SHA256.hexdigest(name) + '.txt'
+        "#{::Digest::SHA256.hexdigest(name)}.txt"
       end
     end
   end

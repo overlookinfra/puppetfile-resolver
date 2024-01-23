@@ -19,11 +19,11 @@ module PuppetfileResolver
           end
           return nil if repo_url.nil?
 
-          metadata_url = 'https://raw.githubusercontent.com/' + repo_url + '/'
+          metadata_url = "https://raw.githubusercontent.com/#{repo_url}/"
           if puppetfile_module.ref
-            metadata_url += puppetfile_module.ref + '/'
+            metadata_url += "#{puppetfile_module.ref}/"
           elsif puppetfile_module.tag
-            metadata_url += puppetfile_module.tag + '/'
+            metadata_url += "#{puppetfile_module.tag}/"
           else
             # Default to master. Should it raise?
             metadata_url += 'master/'

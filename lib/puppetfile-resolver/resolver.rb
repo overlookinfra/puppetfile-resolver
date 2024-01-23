@@ -7,8 +7,7 @@ require 'puppetfile-resolver/models'
 
 module PuppetfileResolver
   class Resolver
-    attr_reader :puppetfile
-    attr_reader :dependencies_to_resolve
+    attr_reader :puppetfile, :dependencies_to_resolve
 
     def initialize(puppetfile_document, puppet_version = nil)
       @puppetfile = puppetfile_document

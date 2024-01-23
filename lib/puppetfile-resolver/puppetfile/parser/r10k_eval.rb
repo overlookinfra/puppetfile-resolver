@@ -65,19 +65,19 @@ module PuppetfileResolver
         def self.post_process_flags!(document)
           flag_ranges = {}
           document.content.lines.each_with_index do |line, index|
-            if (matches = line.match(%r{^\s*# resolver:disable ([A-Za-z\/,]+)(?:\s|$)}))
+            if (matches = line.match(%r{^\s*# resolver:disable ([A-Za-z/,]+)(?:\s|$)}))
               flags_from_line(matches[1]).each do |flag|
                 # Start a flag range if there isn't already one going
                 next unless flag_ranges[flag].nil?
                 flag_ranges[flag] = index
               end
-            elsif (matches = line.match(%r{# resolver:disable ([A-Za-z\/,]+)(?:\s|$)}))
+            elsif (matches = line.match(%r{# resolver:disable ([A-Za-z/,]+)(?:\s|$)}))
               flags_from_line(matches[1]).each do |flag|
                 # Assert the flag if we're not already within a range
                 next unless flag_ranges[flag].nil?
                 assert_resolver_flag(document, flag, index, index)
               end
-            elsif (matches = line.match(%r{^\s*# resolver:enable ([A-Za-z\/,]+)(?:\s|$)}))
+            elsif (matches = line.match(%r{^\s*# resolver:enable ([A-Za-z/,]+)(?:\s|$)}))
               flags_from_line(matches[1]).each do |flag|
                 # End a flag range if there isn't already one going
                 next if flag_ranges[flag].nil?
@@ -122,8 +122,8 @@ module PuppetfileResolver
             next if mod.location.start_line.nil? || mod.location.end_line.nil?
 
             # If the module doesn't span the range we're looking for (from_line --> to_line) ignore it
-            next unless mod.location.start_line >= from_line && mod.location.start_line <= to_line ||
-                        mod.location.end_line >= from_line && mod.location.end_line <= to_line
+            next unless (mod.location.start_line >= from_line && mod.location.start_line <= to_line) ||
+                        (mod.location.end_line >= from_line && mod.location.end_line <= to_line)
             mod.resolver_flags << flag unless mod.resolver_flags.include?(flag)
           end
           nil
