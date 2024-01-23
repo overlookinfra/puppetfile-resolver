@@ -7,7 +7,7 @@ require 'puppetfile-resolver/puppetfile'
 module PuppetfileResolver
   module Models
     class ModuleSpecification
-      attr_accessor :name, :owner, :version, :origin, :resolver_flags # Same as R10K module :type
+      attr_accessor :name, :owner, :version, :origin, :resolver_flags # origin attr same as R10K module :type
 
       def initialize(options = {})
         require 'semantic_puppet'
